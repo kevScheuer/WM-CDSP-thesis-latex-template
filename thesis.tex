@@ -56,7 +56,7 @@
 % thesis - if you are a master student, add thesis option, e.g.,  \documentclass[11pt, draft, thesis]{wmthesis}
 % dissertation - default
 
-% Refine the toc styple to the latest standard - Shanhe
+% Refine the toc style to the latest standard - Shanhe
 % \usepackage[titles]{tocloft}
 % \newlength\mylength
 % \renewcommand\cftchappresnum{\chaptername~}
@@ -129,9 +129,13 @@
     linkcolor=blue,
     filecolor=magenta,      
     urlcolor=cyan,
-    pdftitle={Overleaf Example},
+    pdfauthor={YOUR NAME}, % REPLACE these for pdf metadata -- Kevin
+    pdftitle={Dissertation},
+    pdfsubject={
+        YOUR DISSERTATION TITLE},
+    pdfkeywords={OPTIONAL KEYWORDS},
     pdfpagemode=FullScreen,
-    }
+}
 
 %% Only necessary for draft mode, once final should not need directly below anymore    
 \hypersetup{final}
@@ -145,6 +149,10 @@
 
 
 % Provide the full title of your thesis or dissertation using the format for upper and lower case as indicated.
+% If your title and any chapter/sections/subsections... include LaTeX, you can use 
+% "/texorpdfstring{LaTeX}{text symbols}" to have it print correctly, for example 
+% "\texorpdfstring{$\omega\pi^0$}{ωπ⁰}". Just google "unicode superscript 0" for example
+% to copy the right symbol -- Kevin
 \thesisTitle{Dissertation Title}
 
 %  \thesisAuthor macro
@@ -162,11 +170,16 @@
 %             \thesis@authorx to "Aloysius Goode Student"
 \thesisAuthor[Student Name]{Student Name}
 
-% Enter the expected conferment month and year of your degree, [e.g. January, May, August]. 
+% If you are a doctoral candidate defending your thesis, you will have two separate dates listed.
+% - \defenseMonth, \defenseYear is the month and year of your defense date, which appears on your approval page and copyright page
+% - \graduationMonth and \graduationYear are the expected conferment month and year of your degree, [e.g. January, May, August]. 
 % Check with the Office of Graduate Studies and Research to verify the actual graduation month and year.
-\thesisMonth{May}
-\thesisYear{2018}
-\thesisAdvisor{Professor Qun Li} % Advisor name with title
+% If you do not have a defense, you should be able to make these the same dates -- Kevin
+\defenseMonth{April}
+\defenseYear{2026}
+\graduationMonth{May}
+\graduationYear{2026}
+\thesisAdvisor{Professor Advisor Name} % Advisor name with title
 
 % Enter Degree, e.g. Master of Science or Master of Arts or Doctor of Philosophy.
 \thesisType{Doctor of Philosophy}
@@ -181,22 +194,24 @@
 %% note that the degree should be spelled out, not abbreviated
 % "List all previous degrees with the most recent degree first,
 % [e.g. Master of Arts,University of Colorado-Boulder, 1987]."
-\thesisDegreeOne{Master of Science, ABC College, 2013}
-\thesisDegreeTwo{Bachelor of Engineer, ABC College, 2010}
+%% If you received your masters from William & Mary, this must be written as "William and Mary" like in the example here. -- Kevin
+\thesisDegreeOne{Master of Science, William and Mary, 2022}
+\thesisDegreeTwo{Bachelor of Engineer, ABC College, 2016}
 
 % Enter your department name, [e.g. Department of History, Department of Biology, or American Studies Program].
 \thesisDepartment{Department of Computer Science}
 
 %%-- Committee members
+% Current guidelines (2026) still require that W&M committee members must be listed with "College of William \& Mary" -- Kevin
 %% example 
-%%  \thesisCommittee[Department]{Professor John Doe}{ABC College}
+%%  \thesisCommittee[Department]{John Doe, Professor}{ABC College}
 %%  \thesisCommittee{John Doe}{XYZ Company}
 %%  \thesisCommittee[Copration Department]{John Doe}{XYZ Company}
-\thesisCommittee[Computer Science]{Professor A}{College of William \& Mary}  % use {College of William \& Mary} -- Shanhe
-\thesisCommittee[Computer Science]{Associate Professor B}{College of William \& Mary}
-\thesisCommittee[Computer Science]{Assitant Professor C}{College of William \& Mary}
-\thesisCommittee[Electrical and Computer Engineering]{Professor D}{College of William \& Mary}
-\thesisCommittee[Applied Science]{Outside Committee Member}{College of William \& Mary}
+\thesisCommittee[Computer Science]{A, Professor}{College of William \& Mary}  % use {College of William \& Mary} -- Shanhe
+\thesisCommittee[Computer Science]{B, Associate Professor}{College of William \& Mary}
+\thesisCommittee[Computer Science]{C, Assistant Professor}{College of William \& Mary}
+\thesisCommittee[Electrical and Computer Engineering]{D, Professor}{College of William \& Mary}
+\thesisCommittee[Experimental Nuclear Physics]{JLab Example Member, Staff Scientist}{Thomas Jefferson National Accelerator Facility}
 
 
 %%-- Insert contents of abstract.tex, acknowledge.tex and the dedication.  Don't

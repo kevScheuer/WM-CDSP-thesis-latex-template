@@ -1542,53 +1542,67 @@ FUNCTION {format.names}
     'namesleft :=
     's :=
     #1 'nameptr :=
-    ""
-      { namesleft #0 > }
+    numnames #2 >
       {
-      format.names.morfont
+        #1 'nameptr :=
+        format.names.onefont
         bibinfo bibinfo.check
         type$ "presentation" =
           'check.speaker
           'skip$
         if$
-        't :=
-        nameptr #1 > not
+        " " * bbl.etal emphasize *
+      }
+      {
+        ""
+          { namesleft #0 > }
           {
-            t *
-          } {
-            namesleft #1 >
+          format.names.morfont
+            bibinfo bibinfo.check
+            type$ "presentation" =
+              'check.speaker
+              'skip$
+            if$
+            't :=
+            nameptr #1 > not
               {
-                names.punctuate
                 t *
               } {
-                s nameptr "{ll}" format.name$ duplicate$ "others" =
-                  { 't := }
-                  { pop$ }
-                if$
-                numnames #2 >
-                  'names.comma
-                  'skip$
-                if$
-                t "others" =
+                namesleft #1 >
                   {
-                    " " *
-                    bbl.etal
-                    emphasize
-                    *
-                  } {
-                    bbl.and
-                    space.word *
+                    names.punctuate
                     t *
+                  } {
+                    s nameptr "{ll}" format.name$ duplicate$ "others" =
+                      { 't := }
+                      { pop$ }
+                    if$
+                    numnames #2 >
+                      'names.comma
+                      'skip$
+                    if$
+                    t "others" =
+                      {
+                        " " *
+                        bbl.etal
+                        emphasize
+                        *
+                      } {
+                        bbl.and
+                        space.word *
+                        t *
+                      }
+                    if$
                   }
                 if$
               }
             if$
+            nameptr #1 + 'nameptr :=
+            namesleft #1 - 'namesleft :=
           }
-        if$
-        nameptr #1 + 'nameptr :=
-        namesleft #1 - 'namesleft :=
+        while$
       }
-    while$
+    if$
   } if$
 }
 

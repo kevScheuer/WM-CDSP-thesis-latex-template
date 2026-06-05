@@ -1,4 +1,4 @@
-# TeX Template of Physical Standards for Theses & Dissertations for College of William & Mary, Arts & Sciences
+# TeX Template of Physical Standards for Theses & Dissertations for William & Mary's School of Computing Data Sciences and Physics
 
 This directory contains a collection of template files that can be used with
 LaTeX to produce a PhD dissertation that conforms pretty closely to the W&M
@@ -48,6 +48,13 @@ http://www.wm.edu/as/graduate/studentresources/thesis-dissertations/physicalstan
 
 - [Ezekiel Wertz](https://github.com/zwertz)
 > Updated 2/24 to include branding change from "College of William \& Mary" > to "William \& Mary". >Minor changes based on recommendations from OGS on  physical standards.
+
+- [Kevin Scheuer](https://github.com/kevScheuer)
+> Updated 6/26 to include:
+> > Current CDSP standards for title and approval page
+> > Provided relevant examples and comments for these updates
+> > Added \phantomsection in wmthesis.cls so that TOC now links to the correct pages
+> > Modified apsrev4-2_custom.bst to force references with 3+ authors to only list the first author then *et al.*
 
 ## Usage
 

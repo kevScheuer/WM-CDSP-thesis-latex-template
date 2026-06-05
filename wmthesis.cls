@@ -153,8 +153,10 @@
 %%--------------------------------------------
 
 \newcommand{\thesisTitle}[1]{\gdef\thesis@title{#1}}
-\newcommand{\thesisYear}[1]{\gdef\thesis@year{#1}}
-\newcommand{\thesisMonth}[1]{\gdef\thesis@month{#1}}
+\newcommand{\defenseMonth}[1]{\gdef\thesis@defenseMonth{#1}}
+\newcommand{\defenseYear}[1]{\gdef\thesis@defenseYear{#1}}
+\newcommand{\graduationMonth}[1]{\gdef\thesis@graduationMonth{#1}}
+\newcommand{\graduationYear}[1]{\gdef\thesis@graduationYear{#1}}
 \newcommand{\thesisAbstract}[1]{\gdef\thesis@abstract{#1}}
 \newcommand{\thesisAcknowledge}[1]{\gdef\thesis@ack{#1}}
 \newcommand{\thesisDedication}[1]{\gdef\thesis@dedication{#1}}
@@ -319,7 +321,7 @@
               \hspace{.1in}  \\
               \hspace{.1in}  \\ % 5 lines between department and college -- Ruth
           {The College of William and Mary in Virginia\\
-            \thesis@month, \thesis@year}
+            \thesis@graduationMonth~\thesis@graduationYear}
           }
       \end{center}
     \end{singlespace}
@@ -334,7 +336,7 @@
     \begin{singlespace}
     \vspace*{\fill}
     \fontsize{12}{12}\selectfont
-    \textcopyright~Copyright by~\thesis@author~\thesis@year
+    \textcopyright~Copyright by~\thesis@author~\thesis@defenseYear
     \end{singlespace}
   \end{center}
 }
@@ -363,7 +365,7 @@
             \hspace{.1in}  \\
             \hspace{.1in}  \\
             \hspace{.1in}  \\ % 3 lines between signature line and approved -- Ruth
-        {\large \if \@thesis Approved \else Reviewed \fi by the Committee, \thesis@month~\thesis@year}\\
+        {\large \if \@thesis Approved \else Reviewed \fi by the Committee, \thesis@defenseMonth~\thesis@defenseYear}\\
             \hspace{.1in}  \\
             \hspace{.1in}  \\ % 2 lines between approved and signature line -- Ruth
         \underline{\hspace*{\thesisapprovalwidth}}\\
@@ -450,6 +452,7 @@
 %%--The acknowledgement page
 \newcommand{\makeacknowledgepage}{
   \newpage
+  \phantomsection
   \begin{center}
     \addcontentsline{toc}{chapter}{Acknowledgments}
     \Large\acknowledgeName
@@ -465,6 +468,7 @@
 %%--The dedication page
 \newcommand{\makededicationpage}{
   \newpage
+  \phantomsection
   \begin{center}
     \addcontentsline{toc}{chapter}{Dedications}
     \vspace*{3in}
@@ -479,6 +483,7 @@
 %%--The tables pages
 \newcommand{\maketablespage}{%
   \newpage
+  \phantomsection
   %\begin{singlespace}
   \addcontentsline{toc}{chapter}{List of Tables}
   \renewcommand\listtablename{\begin{center}\Large\normalfont LIST OF TABLES\vspace{-.6in}\end{center}}
@@ -491,6 +496,7 @@
 %%--The figures pages
 \newcommand{\makefigurespage}{%
   \newpage
+  \phantomsection
   %\begin{singlespace}
   \addcontentsline{toc}{chapter}{List of Figures}
   \renewcommand\listfigurename{\begin{center}\Large\normalfont LIST OF FIGURES\vspace{-.6in}\end{center}}
